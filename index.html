@@ -12,7 +12,7 @@
       --bg:#0b0c10;
       --muted:#9aa0aa;
       --text:#e9edf3;
-      --accent:#9ab1ff;
+      --accent:#7aa2ff;
       --pill:#1a1c22;
 
       --g-1a:#ffceb6; --g-1b:#d7b7ff;
@@ -26,7 +26,7 @@
       --maxw:1100px;
 
       --h1: clamp(2.2rem, 4.8vw, 3.2rem);
-      --h2: clamp(1.8rem, 3vw, 2.2rem);
+      --h2: clamp(1.35rem, 2.5vw, 1.6rem);
       --small: 0.925rem;
 
       scroll-behavior:smooth;
@@ -60,13 +60,9 @@
     .subtitle{ color:var(--accent); font-weight:600; margin:0 0 8px; }
     .lead{ color:var(--muted); font-size:var(--small); max-width:66ch; }
 
-    /* Section Headings (white, large) */
+    /* Sections */
     .section{ padding:56px 0; }
-    h2{
-      font:700 var(--h2) "Space Grotesk", Inter, sans-serif;
-      margin:0 0 14px;
-      color:var(--text);
-    }
+    h2{ font:700 var(--h2) "Space Grotesk", Inter, sans-serif; margin:0 0 14px; color:var(--text); }
 
     /* Projects grid */
     .grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
@@ -74,10 +70,15 @@
     @media (max-width:620px){ .grid{ grid-template-columns:1fr; } }
 
     .card{
-      position:relative; border-radius:var(--radius); min-height:150px;
+      position:relative;
+      border-radius:var(--radius);
+      min-height:150px;
       display:flex; align-items:center; justify-content:center;
-      font-weight:700; font-size:1.2rem; color:#0c0f1c;
-      text-decoration:none; transition:.2s ease;
+      font-weight:700; font-size:1.2rem;
+      color:#0c0f1c;
+      text-decoration:none;
+      transition:.2s ease;
+      overflow:hidden;
     }
     .card::before{
       content:""; position:absolute; inset:0; opacity:.95;
@@ -86,9 +87,9 @@
     }
     .card.dark::before{ background:linear-gradient(135deg,var(--g-5a),var(--g-5b)); }
     .card > *{ position:relative; z-index:1; }
-    .card:hover{ transform:translateY(-2px); }
+    .card:hover{ transform:translateY(-2px); box-shadow:0 10px 22px #0000006a; }
 
-    /* Links row */
+    /* Links */
     .links{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
     .linkbox{
       padding:16px; border:1px solid #242734;
@@ -124,28 +125,30 @@
 
     <section id="about" class="section">
       <h2>About</h2>
-      <p class="lead">I care about crisp UI, tiny details, and accessible experiences. Current stack: React, TypeScript,
-        Next.js, Tailwind, and Firebase. Open to internships and collabs.</p>
+      <p class="lead">
+        I care about crisp UI, tiny details, and accessible experiences. Current stack: React, TypeScript,
+        Next.js, Tailwind, and Firebase. Open to internships and collabs.
+      </p>
     </section>
 
     <section id="projects" class="section">
       <h2>Projects</h2>
       <div class="grid">
-        <a class="card" style="--ga:var(--g-1a);--gb:var(--g-1b);" href="#">XO Rumble</a>
-        <a class="card" style="--ga:var(--g-2a);--gb:var(--g-2b);" href="#">Bogetta</a>
-        <a class="card" style="--ga:var(--g-3a);--gb:var(--g-3b);" href="#">Bitcoin Game</a>
-        <a class="card" style="--ga:var(--g-4a);--gb:var(--g-4b);" href="#">Chat App</a>
-        <a class="card dark" href="#">Netflix Clone</a>
-        <a class="card" style="--ga:var(--g-6a);--gb:var(--g-6b);" href="#">Instagram Clone</a>
+        <a class="card" style="--ga: var(--g-1a); --gb: var(--g-1b);" href="https://github.com/yourhandle/xo-rumble" target="_blank">XO Rumble</a>
+        <a class="card" style="--ga: var(--g-2a); --gb: var(--g-2b);" href="https://github.com/yourhandle/bogetta" target="_blank">Bogetta</a>
+        <a class="card" style="--ga: var(--g-3a); --gb: var(--g-3b);" href="https://github.com/yourhandle/bitcoin-game" target="_blank">Bitcoin Game</a>
+        <a class="card" style="--ga: var(--g-4a); --gb: var(--g-4b);" href="https://github.com/yourhandle/chat-app" target="_blank">Chat App</a>
+        <a class="card dark" href="https://github.com/yourhandle/netflix-clone" target="_blank">Netflix Clone</a>
+        <a class="card" style="--ga: var(--g-6a); --gb: var(--g-6b);" href="https://github.com/yourhandle/instagram-clone" target="_blank">Instagram Clone</a>
       </div>
 
       <div class="section" style="padding-top:24px;">
         <h2>More of my works</h2>
         <div class="links">
-          <a class="linkbox" href="#">GitHub</a>
-          <a class="linkbox" href="#">Instagram</a>
-          <a class="linkbox" href="#">LinkedIn</a>
-          <a class="linkbox" href="#">Blog</a>
+          <a class="linkbox" href="https://github.com/yourhandle" target="_blank">GitHub</a>
+          <a class="linkbox" href="https://instagram.com/yourhandle" target="_blank">Instagram</a>
+          <a class="linkbox" href="https://www.linkedin.com/in/yourhandle" target="_blank">LinkedIn</a>
+          <a class="linkbox" href="https://yourblog.example" target="_blank">Blog</a>
         </div>
       </div>
     </section>
@@ -156,7 +159,7 @@
     </section>
 
     <footer class="section">
-      <p>© <span id="y"></span> Miraya Tech.</p>
+      <p>© <span id="y"></span> Miraya Tech. Built with 💙 on GitHub Pages.</p>
     </footer>
   </main>
 
