@@ -12,20 +12,21 @@
       --bg:#0b0c10;
       --muted:#9aa0aa;
       --text:#e9edf3;
-      --accent:#9ab1ff; /* purple accent */
+      --accent:#9ab1ff;
       --pill:#1a1c22;
 
       --g-1a:#ffceb6; --g-1b:#d7b7ff;
       --g-2a:#b3e4ff; --g-2b:#cdb5ff;
       --g-3a:#ffe0a3; --g-3b:#f7b9ff;
       --g-4a:#bff7d3; --g-4b:#acf;
+      --g-5a:#0e0e0e; --g-5b:#2a2a2a;
       --g-6a:#e7d6ff; --g-6b:#ffd7e8;
 
       --radius:16px;
       --maxw:1100px;
 
       --h1: clamp(2.2rem, 4.8vw, 3.2rem);
-      --h2: clamp(1.35rem, 2.5vw, 1.6rem);
+      --h2: clamp(1.8rem, 3vw, 2.2rem);
       --small: 0.925rem;
 
       scroll-behavior:smooth;
@@ -56,15 +57,16 @@
     /* Hero */
     .hero{ padding:72px 0 24px; }
     h1{ font:700 var(--h1) "Space Grotesk", Inter, sans-serif; margin:0; }
-    .subtitle{ color:var(--accent); font-weight:600; margin:0 0 8px; } /* accent only */
+    .subtitle{ color:var(--accent); font-weight:600; margin:0 0 8px; }
     .lead{ color:var(--muted); font-size:var(--small); max-width:66ch; }
 
-    /* Section Headings (purple + dash) */
-    .eyebrow{
-      color:var(--accent); font-weight:700; display:inline-flex; gap:6px; align-items:center; margin-bottom:8px;
+    /* Section Headings (white, large) */
+    .section{ padding:56px 0; }
+    h2{
+      font:700 var(--h2) "Space Grotesk", Inter, sans-serif;
+      margin:0 0 14px;
+      color:var(--text);
     }
-    .eyebrow::after{ content:"—"; opacity:.7; }
-    h2{ font:700 var(--h2) "Space Grotesk", Inter, sans-serif; margin:0 0 14px; }
 
     /* Projects grid */
     .grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
@@ -72,20 +74,28 @@
     @media (max-width:620px){ .grid{ grid-template-columns:1fr; } }
 
     .card{
-      position:relative; border-radius:var(--radius); min-height:150px; padding:18px;
-      display:flex; align-items:flex-end; background:#1a1c22; border:1px solid #252836; text-decoration:none;
-      transition:.2s ease;
+      position:relative; border-radius:var(--radius); min-height:150px;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:700; font-size:1.2rem; color:#0c0f1c;
+      text-decoration:none; transition:.2s ease;
     }
-    .card:hover{ transform:translateY(-2px); }
-    .card::before{ content:""; position:absolute; inset:0; opacity:.95; background:linear-gradient(135deg,var(--ga),var(--gb)); }
-    .card.dark::before{ background:linear-gradient(135deg,#0a0a0a,#2a2a2a); }
+    .card::before{
+      content:""; position:absolute; inset:0; opacity:.95;
+      background:linear-gradient(135deg,var(--ga),var(--gb));
+      border-radius:var(--radius);
+    }
+    .card.dark::before{ background:linear-gradient(135deg,var(--g-5a),var(--g-5b)); }
     .card > *{ position:relative; z-index:1; }
-    .card-title{ font-weight:700; background:#ffffffe8; padding:6px 10px; border-radius:10px; }
-    .card-tech{ position:absolute; left:18px; bottom:14px; font-size:.85rem; opacity:.85; }
+    .card:hover{ transform:translateY(-2px); }
 
     /* Links row */
     .links{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
-    .linkbox{ padding:16px; border:1px solid #242734; background:#11131a; text-align:center; border-radius:12px; color:var(--text); font-weight:600; text-decoration:none; }
+    .linkbox{
+      padding:16px; border:1px solid #242734;
+      background:#11131a; text-align:center;
+      border-radius:12px; color:var(--text);
+      font-weight:600; text-decoration:none;
+    }
 
     footer{ color:#7b8190; font-size:.9rem; padding:44px 0 60px; }
   </style>
@@ -104,28 +114,33 @@
     <section class="hero">
       <h1>Miraya Tech</h1>
       <p class="subtitle">Frontend Developer</p>
-      <p class="lead">I’m a 20-year-old self-taught frontend developer... (your text here)</p>
+      <p class="lead">
+        I’m a 20-year-old self-taught frontend developer. I discovered programming through my brother,
+        and I’ve stayed hooked because learning new things and tackling unfamiliar challenges is exciting.
+        Outside of coding, I like building side projects, writing, and reading. When I’m not at the keyboard,
+        I’m with family or working out. Follow my journey below.
+      </p>
     </section>
 
     <section id="about" class="section">
-      <div class="eyebrow">About</div>
-      <h2>Hi, I’m Miraya.</h2>
-      <p class="lead">I care about crisp UI... (your text here)</p>
+      <h2>About</h2>
+      <p class="lead">I care about crisp UI, tiny details, and accessible experiences. Current stack: React, TypeScript,
+        Next.js, Tailwind, and Firebase. Open to internships and collabs.</p>
     </section>
 
     <section id="projects" class="section">
-      <div class="eyebrow">Projects</div>
-      <h2>Stuff I’ve Worked On</h2>
-
+      <h2>Projects</h2>
       <div class="grid">
-        <a class="card" style="--ga:var(--g-1a);--gb:var(--g-1b);" href="#"><div class="card-title">XO Rumble</div><div class="card-tech">React · TypeScript</div></a>
-        <a class="card" style="--ga:var(--g-2a);--gb:var(--g-2b);" href="#"><div class="card-title">Bogetta</div><div class="card-tech">Next.js · Stripe</div></a>
-        <a class="card" style="--ga:var(--g-3a);--gb:var(--g-3b);" href="#"><div class="card-title">Bitcoin Game</div><div class="card-tech">Firebase</div></a>
+        <a class="card" style="--ga:var(--g-1a);--gb:var(--g-1b);" href="#">XO Rumble</a>
+        <a class="card" style="--ga:var(--g-2a);--gb:var(--g-2b);" href="#">Bogetta</a>
+        <a class="card" style="--ga:var(--g-3a);--gb:var(--g-3b);" href="#">Bitcoin Game</a>
+        <a class="card" style="--ga:var(--g-4a);--gb:var(--g-4b);" href="#">Chat App</a>
+        <a class="card dark" href="#">Netflix Clone</a>
+        <a class="card" style="--ga:var(--g-6a);--gb:var(--g-6b);" href="#">Instagram Clone</a>
       </div>
 
       <div class="section" style="padding-top:24px;">
-        <div class="eyebrow">More of my works</div>
-        <h2></h2>
+        <h2>More of my works</h2>
         <div class="links">
           <a class="linkbox" href="#">GitHub</a>
           <a class="linkbox" href="#">Instagram</a>
@@ -136,8 +151,7 @@
     </section>
 
     <section id="contact" class="section">
-      <div class="eyebrow">Contact</div>
-      <h2>Let’s build something</h2>
+      <h2>Contact</h2>
       <p class="lead">Email: <a href="mailto:hello@miraya.dev">hello@miraya.dev</a></p>
     </section>
 
