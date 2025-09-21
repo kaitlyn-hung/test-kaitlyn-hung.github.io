@@ -10,10 +10,9 @@
   <style>
     :root{
       --bg:#0b0c10;
-      --surface:#111217;
       --muted:#9aa0aa;
       --text:#e9edf3;
-      --accent:#7aa2ff;
+      --accent:#9ab1ff; /* purple accent */
       --pill:#1a1c22;
 
       --g-1a:#ffceb6; --g-1b:#d7b7ff;
@@ -27,22 +26,19 @@
 
       --h1: clamp(2.2rem, 4.8vw, 3.2rem);
       --h2: clamp(1.35rem, 2.5vw, 1.6rem);
-      --body: 1rem;
       --small: 0.925rem;
 
       scroll-behavior:smooth;
     }
 
     *{ box-sizing:border-box; }
-    html,body{ height:100%; }
     body{
       margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      font-family: Inter, system-ui, sans-serif;
       color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 15% 8%, #22253a55, transparent 60%),
-        radial-gradient(900px 500px at 85% -10%, #3b2a6950, transparent 60%),
-        var(--bg);
+      background: radial-gradient(1200px 600px at 15% 8%, #22253a55, transparent 60%),
+                  radial-gradient(900px 500px at 85% -10%, #3b2a6950, transparent 60%),
+                  var(--bg);
       line-height:1.6;
     }
 
@@ -52,113 +48,49 @@
     .wrap{ max-width:var(--maxw); margin-inline:auto; padding:0 22px; }
 
     /* Nav */
-    .nav{
-      position:sticky; top:0; z-index:40;
-      backdrop-filter:saturate(140%) blur(8px);
-      background:#0b0c10cc;
-      border-bottom:1px solid #1b1d24;
-    }
-    .nav-inner{
-      display:flex; align-items:center; justify-content:flex-end;
-      gap:10px; padding:14px 0;
-    }
-    .pill{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:8px 14px;
-      border-radius:999px;
-      background:var(--pill);
-      color:var(--text);
-      font-weight:600;
-      font-size:.95rem;
-      border:1px solid #24262f;
-      transition:.2s ease;
-    }
-    .pill:hover{ transform:translateY(-1px); background:#1c1f27; }
-    .pill.active{ background:#20232b; box-shadow:0 0 0 1px #2b2e38 inset; }
+    .nav{ position:sticky; top:0; background:#0b0c10cc; border-bottom:1px solid #1b1d24; backdrop-filter:blur(8px); }
+    .nav-inner{ display:flex; justify-content:flex-end; gap:10px; padding:14px 0; }
+    .pill{ padding:8px 14px; border-radius:999px; background:var(--pill); color:var(--text); font-weight:600; border:1px solid #24262f; }
+    .pill.active{ background:#20232b; }
 
-    /* Hero (now text-only) */
-    .hero{ padding:72px 0 24px; display:grid; gap:8px; }
-    h1{
-      font:700 var(--h1) "Space Grotesk", Inter, sans-serif;
-      letter-spacing:.2px; margin:0 0 6px;
-    }
-    /* Make subtitle same color as section titles */
-    .subtitle{
-      color:var(--text);          /* same color as titles */
-      font-weight:600;
-      margin:0 0 8px;
-    }
+    /* Hero */
+    .hero{ padding:72px 0 24px; }
+    h1{ font:700 var(--h1) "Space Grotesk", Inter, sans-serif; margin:0; }
+    .subtitle{ color:var(--accent); font-weight:600; margin:0 0 8px; } /* accent only */
     .lead{ color:var(--muted); font-size:var(--small); max-width:66ch; }
 
-    /* Section */
-    .section{ padding:56px 0; }
-    h2{
-      font:700 var(--h2) "Space Grotesk", Inter, sans-serif;
-      margin:0 0 14px;
-      color:var(--text);
+    /* Section Headings (purple + dash) */
+    .eyebrow{
+      color:var(--accent); font-weight:700; display:inline-flex; gap:6px; align-items:center; margin-bottom:8px;
     }
+    .eyebrow::after{ content:"—"; opacity:.7; }
+    h2{ font:700 var(--h2) "Space Grotesk", Inter, sans-serif; margin:0 0 14px; }
 
     /* Projects grid */
-    .grid{
-      display:grid; grid-template-columns:repeat(3, 1fr);
-      gap:18px;
-    }
-    @media (max-width: 960px){ .grid{ grid-template-columns:repeat(2, 1fr); } }
-    @media (max-width: 620px){
-      .grid{ grid-template-columns:1fr; }
-      .nav-inner{ justify-content:center; flex-wrap:wrap; }
-      .hero{ padding-top:54px; }
-    }
+    .grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
+    @media (max-width:960px){ .grid{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:620px){ .grid{ grid-template-columns:1fr; } }
 
     .card{
-      position:relative;
-      border-radius:var(--radius);
-      color:#0f1222;
-      min-height:150px;
-      padding:18px;
-      display:flex; align-items:flex-end;
-      overflow:hidden;
-      background:#1a1c22;
-      border:1px solid #252836;
+      position:relative; border-radius:var(--radius); min-height:150px; padding:18px;
+      display:flex; align-items:flex-end; background:#1a1c22; border:1px solid #252836; text-decoration:none;
       transition:.2s ease;
-      text-decoration:none;
     }
-    .card:hover{ transform: translateY(-2px); box-shadow:0 10px 22px #0000006a; }
-    .card-title{
-      font-weight:700; font-size:1.05rem; color:#0c0f1c;
-      background:#ffffffe8; padding:6px 10px; border-radius:10px;
-      box-shadow: 0 1px 0 #ffffffaa inset;
-    }
-    .card-tech{
-      position:absolute; left:18px; bottom:14px; color:#10131e; font-weight:600; font-size:.85rem; opacity:.85;
-    }
-    .card::before{
-      content:""; position:absolute; inset:0; opacity:.95;
-      background:linear-gradient(135deg, var(--ga), var(--gb));
-    }
+    .card:hover{ transform:translateY(-2px); }
+    .card::before{ content:""; position:absolute; inset:0; opacity:.95; background:linear-gradient(135deg,var(--ga),var(--gb)); }
     .card.dark::before{ background:linear-gradient(135deg,#0a0a0a,#2a2a2a); }
     .card > *{ position:relative; z-index:1; }
+    .card-title{ font-weight:700; background:#ffffffe8; padding:6px 10px; border-radius:10px; }
+    .card-tech{ position:absolute; left:18px; bottom:14px; font-size:.85rem; opacity:.85; }
 
     /* Links row */
-    .links{ display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; }
-    @media (max-width: 720px){ .links{ grid-template-columns:repeat(2, 1fr); } }
-    .linkbox{
-      display:flex; align-items:center; justify-content:center;
-      gap:10px; padding:16px 14px;
-      border:1px solid #242734; background:#11131a; color:#dfe6f3;
-      font-weight:600; border-radius:12px; transition:.2s ease; text-decoration:none;
-    }
-    .linkbox:hover{ background:#151825; transform:translateY(-1px); }
+    .links{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+    .linkbox{ padding:16px; border:1px solid #242734; background:#11131a; text-align:center; border-radius:12px; color:var(--text); font-weight:600; text-decoration:none; }
 
     footer{ color:#7b8190; font-size:.9rem; padding:44px 0 60px; }
-
-    :target{ scroll-margin-top:80px; }
-    @media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
   </style>
 </head>
 <body>
-
-  <!-- Nav -->
   <header class="nav">
     <div class="wrap nav-inner">
       <a class="pill active" href="#home">Home</a>
@@ -168,110 +100,54 @@
     </div>
   </header>
 
-  <!-- Hero (text only, no pastel block) -->
   <main id="home" class="wrap">
     <section class="hero">
       <h1>Miraya Tech</h1>
       <p class="subtitle">Frontend Developer</p>
-      <p class="lead">
-        I’m a 20-year-old self-taught frontend developer. I discovered programming through my brother,
-        and I’ve stayed hooked because learning new things and tackling unfamiliar challenges is exciting.
-        Outside of coding, I like building side projects, writing, and reading. When I’m not at the keyboard,
-        I’m with family or working out. Follow my journey below.
-      </p>
+      <p class="lead">I’m a 20-year-old self-taught frontend developer... (your text here)</p>
     </section>
 
-    <!-- About -->
     <section id="about" class="section">
-      <h2>About</h2>
-      <p class="lead">
-        I care about crisp UI, tiny details, and accessible experiences. Current stack: React, TypeScript,
-        Next.js, Tailwind, and Firebase. Open to internships and collabs.
-      </p>
+      <div class="eyebrow">About</div>
+      <h2>Hi, I’m Miraya.</h2>
+      <p class="lead">I care about crisp UI... (your text here)</p>
     </section>
 
-    <!-- Projects -->
     <section id="projects" class="section">
-      <h2>Projects</h2>
+      <div class="eyebrow">Projects</div>
+      <h2>Stuff I’ve Worked On</h2>
 
       <div class="grid">
-        <a class="card" style="--ga: var(--g-1a); --gb: var(--g-1b);" href="https://example.com/xo-rumble" target="_blank" rel="noopener">
-          <div class="card-title">XO Rumble</div>
-          <div class="card-tech">Zustand · React · TypeScript</div>
-        </a>
-
-        <a class="card" style="--ga: var(--g-2a); --gb: var(--g-2b);" href="https://example.com/bogetta" target="_blank" rel="noopener">
-          <div class="card-title">Bogetta</div>
-          <div class="card-tech">Next.js · TypeScript · Prisma · Stripe</div>
-        </a>
-
-        <a class="card" style="--ga: var(--g-3a); --gb: var(--g-3b);" href="https://example.com/bitcoin-game" target="_blank" rel="noopener">
-          <div class="card-title">Bitcoin Game</div>
-          <div class="card-tech">E2E · React · TypeScript · Firebase</div>
-        </a>
-
-        <a class="card" style="--ga: var(--g-4a); --gb: var(--g-4b);" href="https://example.com/chat-app" target="_blank" rel="noopener">
-          <div class="card-title">Chat App</div>
-          <div class="card-tech">React · TypeScript · Firebase</div>
-        </a>
-
-        <a class="card dark" href="https://example.com/netflix-clone" target="_blank" rel="noopener">
-          <div class="card-title">Netflix Clone</div>
-          <div class="card-tech">React · TypeScript · Firebase</div>
-        </a>
-
-        <a class="card" style="--ga: var(--g-6a); --gb: var(--g-6b);" href="https://example.com/instagram-clone" target="_blank" rel="noopener">
-          <div class="card-title">Instagram Clone</div>
-          <div class="card-tech">React · TypeScript · CSS · Firebase</div>
-        </a>
+        <a class="card" style="--ga:var(--g-1a);--gb:var(--g-1b);" href="#"><div class="card-title">XO Rumble</div><div class="card-tech">React · TypeScript</div></a>
+        <a class="card" style="--ga:var(--g-2a);--gb:var(--g-2b);" href="#"><div class="card-title">Bogetta</div><div class="card-tech">Next.js · Stripe</div></a>
+        <a class="card" style="--ga:var(--g-3a);--gb:var(--g-3b);" href="#"><div class="card-title">Bitcoin Game</div><div class="card-tech">Firebase</div></a>
       </div>
 
       <div class="section" style="padding-top:24px;">
-        <!-- Removed 'On The Web' eyebrow -->
-        <h2>More of my works</h2>
+        <div class="eyebrow">More of my works</div>
+        <h2></h2>
         <div class="links">
-          <a class="linkbox" href="https://github.com/yourhandle" target="_blank" rel="noopener">GitHub</a>
-          <a class="linkbox" href="https://instagram.com/yourhandle" target="_blank" rel="noopener">Instagram</a>
-          <a class="linkbox" href="https://www.linkedin.com/in/yourhandle" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="linkbox" href="https://yourblog.example" target="_blank" rel="noopener">Blog</a>
+          <a class="linkbox" href="#">GitHub</a>
+          <a class="linkbox" href="#">Instagram</a>
+          <a class="linkbox" href="#">LinkedIn</a>
+          <a class="linkbox" href="#">Blog</a>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p class="lead">
-        Email: <a href="mailto:hello@miraya.dev">hello@miraya.dev</a>
-        &nbsp;—&nbsp; Based anywhere with Wi-Fi.
-      </p>
+      <div class="eyebrow">Contact</div>
+      <h2>Let’s build something</h2>
+      <p class="lead">Email: <a href="mailto:hello@miraya.dev">hello@miraya.dev</a></p>
     </section>
 
     <footer class="section">
-      <p>© <span id="y"></span> Miraya Tech. Built with 💙 on GitHub Pages.</p>
+      <p>© <span id="y"></span> Miraya Tech.</p>
     </footer>
   </main>
 
   <script>
-    // current year
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // active nav pill on scroll
-    const sections = [...document.querySelectorAll('main section[id]')];
-    const pills = [...document.querySelectorAll('.pill')];
-    const byId = id => pills.find(a => a.getAttribute('href') === '#' + id);
-
-    const obs = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          pills.forEach(p=>p.classList.remove('active'));
-          const a = byId(entry.target.id);
-          if(a) a.classList.add('active');
-        }
-      });
-    }, { rootMargin: "-50% 0px -45% 0px", threshold: 0 });
-
-    sections.forEach(s=>obs.observe(s));
   </script>
 </body>
 </html>
