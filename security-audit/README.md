@@ -17,7 +17,7 @@ Botium Toys is a growing U.S. toy company with one physical location serving as 
 
 2️⃣ **Perform an internal audit by completing a controls and compliance checklist.**
 
-3️⃣ **Explain checklist decisions and provide recommendations for the gaps in security measures.**
+3️⃣ **Explain checklist decisions.**
 
 ---
 
@@ -51,7 +51,7 @@ First, I'll define the control categories. The different control types are preve
 |Fire detection/prevention (fire alarm, sprinkler system, etc.)| Yes |
 
 
-3️⃣  **Explain checklist decisions and provide recommendations for the gaps in security measures.**
+3️⃣  **Explain checklist decisions.**
 
 **Explanation**<br>
 According to the Risk Assessment provided, all employees have access to company and customer data, including PII/SPII, meaning Botium Toys is not implementing the principle of least privilege. The principle of least privilege reduces the misuse of data because it gives employees **only** the minimum level of access or permissions they need to perform their tasks.<br>
@@ -63,16 +63,4 @@ IDS has not been installed meaning suspicious system activity will not be prompt
 Encryption is not currently used which puts ingoing and outgoing data at risk. Data should be confidential, authentic, reliable, and only accessible to those authorized.<br>
 
 Currently, there aren't any disaster recovery plans or backups in place.
-
-
-**Recommendations**<br>
-Exemplar: Multiple controls need to be implemented to improve Botium Toys’ security posture
-and better ensure the confidentiality of sensitive information, including: Least Privilege,
-disaster recovery plans, password policies, separation of duties, an IDS, ongoing legacy
-system management, encryption, and a password management system.
-To address gaps in compliance, Botium Toys needs to implement controls such as Least
-Privilege, separation of duties, and encryption. The company also needs to properly
-classify assets, to identify additional controls that may need to be implemented to
-improve their security posture and better protect sensitive information.
-
 
