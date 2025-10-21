@@ -1,14 +1,14 @@
 # Linux File Permissions Project
 
-### Purpose
+## Purpose
 Use Linux commands to configure authorization. Authorization is the concept of granting access to specific resources in a system. Without authorization, any user could access and modify all files belonging to other users or system files- a major security risk. 
 
-### Skills Demonstrated
+## Skills Demonstrated
 + Examine file and directory permissions
 + Change permissions on files/directories
 
 ---
-### Tasks
+## Tasks
 1️⃣ Check the user and group permissions for all files in the projects directory.  
 2️⃣ Check whether any files have incorrect permissions and change the permissions as needed.  
 3️⃣ Check the permissions of the **/home/researcher2/projects/drafts** directory and modify these permissions to remove any unauthorized access.  
