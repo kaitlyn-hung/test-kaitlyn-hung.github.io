@@ -1,9 +1,9 @@
 # Linux File Permissions Project
 
-## Purpose
+### Purpose
 Use Linux commands to configure authorization. Authorization is the concept of granting access to specific resources in a system. Without authorization, any user could access and modify all files belonging to other users or system files- a major security risk. 
 
-## Skills Demonstrated
+### Skills Demonstrated
 + Examine file and directory permissions
 + Change permissions on files/directories
 
@@ -13,7 +13,7 @@ Use Linux commands to configure authorization. Authorization is the concept of g
 
 2️⃣ **Check whether any files have incorrect permissions and change the permissions as needed.**
 
-3️⃣ **Check the permissions of the /home/researcher2/projects/drafts directory and modify these permissions to remove any unauthorized access.**
+3️⃣ **Change file permissions on a hidden file.**
 
 4️⃣ **Change directory permissions.**  
 
@@ -29,18 +29,18 @@ List the contents and permissions of the projects directory.
 ```bash
 ls -l
 ```
-Results:   
+Results: The 10 characters at the beginning of each entry indicates the file type and the read, write, and execute permissions for user, group, and other. The second block of text is the user who owns the file. The third block of text is the group owner of the file.   
+Here, line 2 represents a directory that the user has read, write, execute permissions, the group has execute permissions, and other has none. The user owner is researcher2 and the group owner is research_team.     
 <img width="617" height="101" alt="Screen Shot 2025-10-21 at 6 39 32 PM" src="https://github.com/user-attachments/assets/8ed2f9df-9f04-4b01-8c84-462d2ae6f96a" />  
-The 10 characters at the beginning of each entry indicates the file type and the read, write, and execute permissions for user, group, and other. The second block of text is the user who owns the file. The third block of text is the group owner of the file.   
-Here, line 2 represents a directory that the user has read, write, execute permissions, the group has execute permissions, and other has none. The user owner is researcher2 and the group owner is research_team.  
+
 
 
 
 #### Task 2️⃣: Check whether any files have incorrect permissions and change the permissions as needed. 
-In the expanded directory listing, do any of the files have write permissions for the owner type of other? 
+In the expanded directory listing from the step prior, do any of the files have write permissions for the owner type of other? 
 Yes. project_k.txt has write permissions for the owner type of other. 
 
-Remove write permissions from the owner type of other from the file identified in the step prior. 
+Remove write permissions from the owner type of other from the file identified.
 ```
 chmod o-w project_k.txt
 ```
@@ -68,7 +68,7 @@ chmod u-w,g-w,g+r .project_x.txt
 
 
 #### Task 4️⃣: Change directory permissions.
-Only the researcher2 user should be allowed to access the drafts directory and its contents. (This means that only researcher2 should have execute privileges.) Currently, the user and group have execute permissions and therefore have access to the drafts directory. Therefore, execute permissions for the group must be removed from the drafts directory.
+Only the researcher2 user should be allowed to access the drafts directory and its contents. Currently, the user and group have execute permissions and therefore have access to the drafts directory. Therefore, execute permissions for the group must be removed from the drafts directory.
 ```
 chmod g-x drafts
 ```
