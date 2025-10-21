@@ -9,12 +9,16 @@ Use Linux commands to configure authorization. Authorization is the concept of g
 
 ---
 ## Tasks
-1️⃣ Check the user and group permissions for all files in the projects directory.  
-2️⃣ Check whether any files have incorrect permissions and change the permissions as needed.  
-3️⃣ Check the permissions of the **/home/researcher2/projects/drafts** directory and modify these permissions to remove any unauthorized access.  
-4️⃣ Change directory permissions.   
+1️⃣ **Check the user and group permissions for all files in the projects directory.**
+
+2️⃣ **Check whether any files have incorrect permissions and change the permissions as needed.**
+
+3️⃣ **Check the permissions of the /home/researcher2/projects/drafts directory and modify these permissions to remove any unauthorized access.**
+
+4️⃣ **Change directory permissions.**  
 
 ---
+## Results
 #### Task 1️⃣: Check the user and group permissions for all files in the projects directory. 
 Navigate to the **projects directory** from current directory /home/researcher2. 
 ```bash
