@@ -71,7 +71,12 @@ chmod u-w,g-w,g+r .project_x.txt
 Only the researcher2 user should be allowed to access the drafts directory and its contents. Currently, the user and group have execute permissions and therefore have access to the drafts directory. Therefore, execute permissions for the group must be removed from the drafts directory.
 ```
 chmod g-x drafts
-```
+```  
+
+### Final Thoughts
+Through this project, I learned how to further interact with the Linux operating system using the chmod command to manage authorization of files and directories. These skills are essential for a security analyst because they strengthen my ability to work efficiently in a command-line environment, locate and analyze critical information, and manage system permissions to maintain security and integrity in a Linux-based system.
+
+Previously, I practiced navigating and managing files, creating and removing directories, copying and editing files with the Nano text editor, and using commands like grep and piping to search for and extract specific information. 
 
 
 
