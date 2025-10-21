@@ -50,15 +50,29 @@ In the chmod command, u sets the permissions for the user who owns the file, g s
 Remove read or write permissions from the group to project_m.txt file. 
 ```
 chmod g-r project_m.txt
+```  
+
+
+
+#### Task 3️⃣: Change file permissions on a hidden file. 
+Determine if there are hidden files. 
+```
+ls -la
+```
+Project_x.txt is hidden file. User has read and write permissions. Group has write permissions.  
+
+Change the permissions of the file .project_x.txt so that both the user and the group can read, but not write to, the file.
+```
+chmod u-w,g-w,g+r .project_x.txt
+```
+
+
+#### Task 4️⃣: Change directory permissions.
+Only the researcher2 user should be allowed to access the drafts directory and its contents. (This means that only researcher2 should have execute privileges.) Currently, the user and group have execute permissions and therefore have access to the drafts directory. Therefore, execute permissions for the group must be removed from the drafts directory.
+```
+chmod g-x drafts
 ```
 
 
 
 
-
-
-✅ File ownership and access control  
-✅ Shell scripting fundamentals  
-✅ Clear documentation and result interpretation  
-
----
