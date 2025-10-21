@@ -1,4 +1,4 @@
-# Configure Authorization using Linux Commands
+# Configuring Authorization using Linux Commands
 
 ### Purpose
 Use Linux commands to configure authorization. Authorization is the concept of granting access to specific resources in a system. Without authorization, any user could access and modify all files belonging to other users or system files- a major security risk. 
