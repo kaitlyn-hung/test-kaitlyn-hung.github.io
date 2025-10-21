@@ -1,84 +1,58 @@
-# 🧱 Linux File Permissions Project
+# Linux File Permissions Project
 
-### 🧠 Objective
-Learn how to view and change file permissions in Linux using `ls`, `chmod`, and `chown`.  
-This exercise demonstrates how ownership and permission bits control access to files.  
+### Purpose
+Use Linux commands to configure authorization. Authorization is the concept of granting access to specific resources in a system. Without authorization, any user could access and modify all files belonging to other users or system files- a major security risk. 
+
+### Skills Demonstrated
++ Examine file and directory permissions
++ Change permissions on files/directories
 
 ---
+### Tasks
+1️⃣ Check the user and group permissions for all files in the projects directory.  
+2️⃣ Check whether any files have incorrect permissions and change the permissions as needed.  
+3️⃣ Check the permissions of the **/home/researcher2/projects/drafts** directory and modify these permissions to remove any unauthorized access.  
+4️⃣ Change directory permissions.   
 
-### ⚙️ Steps & Commands
-
-#### 1️⃣ Create a file
+---
+#### Task 1️⃣: Check the user and group permissions for all files in the projects directory. 
+Navigate to the **projects directory** from current directory /home/researcher2. 
 ```bash
-touch testfile.txt
-ls -l testfile.txt
+cd project
 ```
 
-🗒 **Result:**  
-Shows the new file with default permissions:
-```
--rw-r--r-- 1 kait kait 0 Oct 8 19:30 testfile.txt
-```
-Owner can read/write, group can read, others can read.
-
----
-
-#### 2️⃣ Change the owner (optional)
+List the contents and permissions of the projects directory.
 ```bash
-sudo chown $USER testfile.txt
+ls -l
 ```
-🧩 **Explanation:**  
-Ensures the file belongs to the current user.
+Results:   
+<img width="617" height="101" alt="Screen Shot 2025-10-21 at 6 39 32 PM" src="https://github.com/user-attachments/assets/8ed2f9df-9f04-4b01-8c84-462d2ae6f96a" />  
+The 10 characters at the beginning of each entry indicates the file type and the read, write, and execute permissions for user, group, and other. The second block of text is the user who owns the file. The third block of text is the group owner of the file.   
+Here, line 2 represents a directory that the user has read, write, execute permissions, the group has execute permissions, and other has none. The user owner is researcher2 and the group owner is research_team.  
 
----
 
-#### 3️⃣ Modify permissions
-```bash
-chmod 640 testfile.txt
-ls -l testfile.txt
+
+#### Task 2️⃣: Check whether any files have incorrect permissions and change the permissions as needed. 
+In the expanded directory listing, do any of the files have write permissions for the owner type of other? 
+Yes. project_k.txt has write permissions for the owner type of other. 
+
+Remove write permissions from the owner type of other from the file identified in the step prior. 
 ```
-
-💡 **Breakdown of 640:**
-
-| Role | Binary | Meaning | Permissions |
-|------|---------|----------|--------------|
-| Owner | 6 | Read + Write | `rw-` |
-| Group | 4 | Read | `r--` |
-| Others | 0 | None | `---` |
-
-**Result:**
+chmod o-w project_k.txt
 ```
--rw-r----- 1 kait kait 0 Oct 8 19:35 testfile.txt
+In the chmod command, u sets the permissions for the user who owns the file, g sets the permissions for the group that owns the file, and o sets the permissions for others.  
+
+
+Remove read or write permissions from the group to project_m.txt file. 
 ```
-
----
-
-#### 4️⃣ Add execute for owner
-```bash
-chmod u+x testfile.txt
-ls -l testfile.txt
+chmod g-r project_m.txt
 ```
 
-🧩 Adds execute (`x`) permission for the user.  
 
-Final output:
-```
--rwxr----- 1 kait kait 0 Oct 8 19:40 testfile.txt
-```
 
----
 
-### 📘 Key Takeaways
-- `ls -l` → view permissions  
-- `chmod` → change permissions (numeric or symbolic)  
-- `chown` → change file ownership  
-- Permissions follow: **Owner | Group | Others**  
-- Values: **r = 4, w = 2, x = 1**
 
----
 
-### 🧰 Skills Demonstrated
-✅ Linux command line basics  
 ✅ File ownership and access control  
 ✅ Shell scripting fundamentals  
 ✅ Clear documentation and result interpretation  
