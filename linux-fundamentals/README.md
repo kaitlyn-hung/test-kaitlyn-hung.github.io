@@ -6,7 +6,7 @@ Demonstrates my proficiency with essential Linux commands and navigation techniq
 ### Skills Demonstrated
 + Install and manage applications on a Linux operating system
 + Navigate, manage, and analyze files 
-+ Return specific information with the ```grep``` command
++ Return specific information by combining the ```grep``` command and piping
 + Create and remove directories
 + Edit files with the nano text editor
 + Add new users, add user to a group, change user permissions on files, delete a user
