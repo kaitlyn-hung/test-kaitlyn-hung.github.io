@@ -59,6 +59,15 @@
     h1{ font:700 var(--h1) "Space Grotesk", Inter, sans-serif; margin:0; }
     .subtitle{ color:var(--accent); font-weight:600; margin:0 0 8px; }
     .lead{ color:var(--muted); font-size:var(--small); max-width:66ch; }
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      display: block;
+      margin-bottom: 20px;
+    }
 
     /* Sections */
     .section{ padding:56px 0; }
@@ -116,6 +125,7 @@
 
   <main id="home" class="wrap">
     <section class="hero">
+      <img class="profile-pic" src="https://github.com/kaitlyn-hung/kaitlyn-hung.github.io/blob/main/profile.jpg?raw=true" alt="Kaitlyn Hung headshot">
       <h1>Kaitlyn Hung</h1>
       <p class="subtitle">Cybersecurity Analyst</p>
       <p class="lead">
